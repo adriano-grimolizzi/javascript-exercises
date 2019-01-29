@@ -4,4 +4,4 @@ var sayHello = function() {
 
 sayHello();
 
-console.log(typeof(sayHello));
+console.log(typeof(sayHello)); //function
