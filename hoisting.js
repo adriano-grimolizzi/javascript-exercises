@@ -25,3 +25,21 @@ var u = 7;
 // Declare your variables at the top! since this is how JS interprets the code.
 // JS in strict mode doesn't allow variables to be used if they are not declared.
 // "Use strict"
+
+// Hoisting for functions:
+
+hello(); // This one works...
+
+function hello() {
+    console.log("Ciao!");
+}
+
+// ---
+
+// sayHello(); // ...while this one doesn't.
+
+var sayHello = function() {
+    console.log("Ti Dico Ciao!");
+};
+
+sayHello();
