@@ -36,7 +36,7 @@ function hello() {
 
 // ---
 
-// sayHello(); // ...while this one doesn't.
+// sayHello(); // ...while this one doesn't. TypeError: sayHello is not a function
 
 var sayHello = function() {
     console.log("Ti Dico Ciao!");
