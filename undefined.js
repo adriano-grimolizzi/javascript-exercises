@@ -1,10 +1,10 @@
 let nonDef;
-console.log(nonDef);
-console.log(typeof(nondef));
+console.log(nonDef);          // undefined
+console.log(typeof(nondef));  // undefined
 
 let nulla = null;
-console.log(nulla);
-console.log(typeof(nulla));
+console.log(nulla);           // null
+console.log(typeof(nulla));   // object
 
 // undefined means a variable that has been declared but has not yet been assigned a value.
 // unassigned variables are initialized by JS with a default value of undefined.
