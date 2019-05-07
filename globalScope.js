@@ -6,4 +6,4 @@ function one() {
     console.log(a);
 }
 
-one();
+one(); // 1
