@@ -25,10 +25,13 @@ test("Searching for a field on a null object should throw an exception", () => {
 
 test("You have to check if the parent object is thruthy", () => {
 
-    const person = undefined
+    const person = null
 
-    expect(person && person.age).toBe(undefined)
+    expect(person && person.age).toBe(null)
 
-    // Optional chaining operator!
+    // Optional chaining operator
+    // By using ?. instead of just . JavaScript knows to implicityly check if the parent 
+    // object is not null or undefined before attempting to access the child field. 
+    // If it is, the expression automatically short-circuits, returning undefined.
     expect(person?.age).toBe(undefined)
 })
