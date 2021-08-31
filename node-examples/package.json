@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "config": "^3.3.6",
+    "express": "^4.17.1",
     "http": "0.0.1-security",
     "request": "^2.88.2"
   },
