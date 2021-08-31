@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const { getErrorMessage } = require('./utils')
+const { getErrorIfExists } = require('./utils')
 
 const URL = "https://jsonplaceholder.typicode.com/users"
 
@@ -10,9 +10,11 @@ const getUsers = async () => {
         console.log(data)
         return data
     } catch (error) {
-        console.error(getErrorMessage(error))
+        console.error(getErrorIfExists(error))
         return error
     }
 }
 
-module.exports.getUsers = getUsers
+module.exports = {
+    getUsers
+}
