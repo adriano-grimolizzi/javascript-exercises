@@ -4,6 +4,7 @@
   "description": "A rest example",
   "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "dev": "nodemon",
     "test": "jest"
   },
