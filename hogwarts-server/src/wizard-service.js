@@ -1,11 +1,16 @@
 const axios = require('axios')
 
-const URL = 'https://adriano.free.beeceptor.com/wizards'
+const { WIZARDS_URL } = require('./constants')
 
 const getWizards = async () => {
-    const { data } = await axios.get(URL)
-    console.log(data)
-    return data
+    try {
+        const { data } = await axios.get(WIZARDS_URL)
+        console.log(data)
+        return data
+    } catch (error) {
+        console.error(error)
+        return []
+    }
 }
 
 module.exports = {
