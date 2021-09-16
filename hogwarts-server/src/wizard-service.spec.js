@@ -30,15 +30,16 @@ describe('wizard service test', () => {
     describe('when API call is fails', () => {
         it('should return empty list', async () => {
             // given
-            axios.get.mockRejectedValueOnce(new Error('Network Error'))
-            
+            const mockError = new Error('Network Error')
+            axios.get.mockRejectedValueOnce(mockError)
+
             // when
             const result = await service.getWizards()
 
             // then
             expect(axios.get).toHaveBeenCalledTimes(2)
             expect(axios.get).toHaveBeenCalledWith(WIZARDS_URL)
-            expect(result).toEqual([])
+            expect(result).toEqual(mockError)
         })
     })
 })
