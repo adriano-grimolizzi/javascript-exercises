@@ -31,6 +31,10 @@ describe('wizard service test', () => {
         it('should return empty list', async () => {
             // given
             const mockError = new Error('Network Error')
+            mockError.response = {
+                status: 404,
+                statusText: "Not Found"
+            }
             axios.get.mockRejectedValueOnce(mockError)
 
             // when

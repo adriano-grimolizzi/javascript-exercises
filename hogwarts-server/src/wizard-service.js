@@ -1,6 +1,7 @@
 const axios = require('axios')
 
 const { WIZARDS_URL } = require('./constants')
+const { getErrorMessage } = require('./utils')
 
 const getWizards = async () => {
     try {
@@ -8,7 +9,7 @@ const getWizards = async () => {
         console.log(data)
         return data
     } catch (error) {
-        console.error(error)
+        console.error(getErrorMessage(error))
         return error
     }
 }
