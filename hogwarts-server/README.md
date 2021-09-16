@@ -20,3 +20,4 @@ Adriano Grimolizzi
 ## Acknowledgments
 Useful articles, tutorials:
 * [3 Ways To Mock Axios In Jest](https://www.vhudyma-blog.eu/3-ways-to-mock-axios-in-jest/)
+* [A simple README.md template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
