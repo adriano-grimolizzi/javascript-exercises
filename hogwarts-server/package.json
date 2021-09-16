@@ -1,0 +1,17 @@
+{
+  "name": "hogwarts-server",
+  "version": "1.0.0",
+  "description": "A rest example",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Adriano Grimolizzi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4"
+  },
+  "devDependencies": {
+    "jest": "^27.2.0"
+  }
+}
