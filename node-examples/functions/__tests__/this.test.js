@@ -83,19 +83,19 @@ test("...or use an arrow function where 'this' is bound lexically", () => {
 test("call", () => {
 
     const bruce = { name: "Bruce" }
-
+    
     function greet() {
         return `Hello, I'm ${this?.name}`
     }
-
+    
     expect(greet()).toBe("Hello, I'm undefined")
-
+    
     // you can specify what this is bound to no matter how or where the 
     // function in question is called.
     // call is a method available on all functions that allows you to call 
     // the function with a specific value of this.
     expect(greet.call(bruce)).toBe("Hello, I'm Bruce")
-
+    
     // The first argument to call is the value that this will bind to.
     // The remaining arguments become arguments to the function you're 
     // calling:
@@ -103,4 +103,18 @@ test("call", () => {
         return `${this.name}, ${age}`
     }
     expect(greetWithAge.call(bruce, 33)).toBe("Bruce, 33")
+    
+    // apply takes its argument as an array
+    expect(greetWithAge.apply(bruce, [66])).toBe("Bruce, 66")
+    
+    // bind permanently associate a value for this with a function.
+    const greetBruce = greetWithAge.bind(bruce)
+    
+    expect(greetBruce(44)).toBe("Bruce, 44")
+    // even if you call it with 'call', 'apply' or another 'bind'
+    const carl = { name: "Carl" }
+    expect(greetBruce.call(carl, 22)).toBe("Bruce, 22")
+
+    const greetBruceWithAge = greetWithAge.bind(bruce, 77)
+    expect(greetBruceWithAge()).toBe("Bruce, 77")
 })
