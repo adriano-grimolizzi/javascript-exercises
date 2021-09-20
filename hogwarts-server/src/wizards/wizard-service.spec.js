@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const service = require('./wizard-service')
-const { WIZARDS_URL } = require('./constants')
+const { WIZARDS_URL } = require('../utils/constants')
 
 jest.mock('axios')
 

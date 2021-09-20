@@ -2,7 +2,7 @@ const express = require('express')
 const logger = require('@agrimolizzi/logger')()
 
 const service = require('./wizard-service')
-const { isError } = require('./utils')
+const { isError } = require('../utils/utils')
 
 const router = express.Router()
 

@@ -1,7 +1,7 @@
 const express = require('express')
 const logger = require('@agrimolizzi/logger')()
 
-const wizardRouter = require('./wizard-router')
+const wizardRouter = require('./wizards/wizard-router')
 
 const app = express()
 const PORT = 3000
