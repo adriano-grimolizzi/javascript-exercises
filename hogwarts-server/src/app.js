@@ -1,4 +1,5 @@
 const express = require('express')
+const logger = require('@agrimolizzi/logger')()
 
 const wizardRouter = require('./wizard-router')
 
@@ -12,5 +13,5 @@ app.get('/health', (_, response) => {
 app.use('/wizards', wizardRouter)
 
 app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`)
+    logger.info(`Example app listening at http://localhost:${PORT}`)
 })

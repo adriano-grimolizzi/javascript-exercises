@@ -11,6 +11,7 @@
   "author": "Adriano Grimolizzi",
   "license": "ISC",
   "dependencies": {
+    "@agrimolizzi/logger": "^1.0.0",
     "axios": "^0.21.4",
     "express": "^4.17.1"
   },
