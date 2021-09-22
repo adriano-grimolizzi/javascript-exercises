@@ -32,12 +32,7 @@ describe("app test", () => {
   describe('when service call is unsuccessful', () => {
     test("should return 500 if the service rejects with an error", async () => {
       // given
-      const mockError = new Error('Network Error')
-      mockError.response = {
-        status: 404,
-        statusText: "Not Found"
-      }
-      wizardService.getWizards.mockResolvedValueOnce(mockError)
+      wizardService.getWizards.mockResolvedValueOnce(new Error())
       // when
       const response = await request(app).get(endpoints.WIZARDS)
       // then
