@@ -1,6 +1,7 @@
 const endpoints = {
     HEALTH: '/health',
-    WIZARDS: '/wizards'
+    WIZARDS: '/wizards',
+    MISSING_ROUTE: '*'
 }
     
 const WIZARDS_URL = 'https://adriano.free.beeceptor.com/wizards'
