@@ -7,7 +7,7 @@ describe('getFirstName test', () => {
         ${undefined} | ${{ info: undefined }}
         ${undefined} | ${{ info: { firstName: undefined } }}
         ${"Gregory"} | ${{ info: { firstName: "Gregory" } }}
-    `('returns $expected when input is $input', ({ expected, input }) => {
+    `('return $expected when input is $input', ({ expected, input }) => {
         expect(getFirstName(input)).toBe(expected);
     })
 })
