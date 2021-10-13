@@ -1,5 +1,6 @@
 const endpoints = {
     HEALTH: '/health',
+    HOUSES: '/houses',
     WIZARDS: '/wizards',
     MISSING_ROUTE: '*'
 }

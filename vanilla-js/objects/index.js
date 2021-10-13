@@ -1,7 +1,11 @@
 const messages = {
     pleaseCallSupport: 'pleaseCallSupport',
     noAvailableAgents: 'noAvailableAgents',
-    mix: self.pleaseCallSupport
+    normalFunction: function() {
+        return this.pleaseCallSupport
+    },
+    arrowFunction: () => this.pleaseCallSupport
 }
 
-console.log(messages.mix)
+console.log(messages.normalFunction()) // OK
+console.log(messages.arrowFunction()) // undefined
