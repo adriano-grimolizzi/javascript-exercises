@@ -8,14 +8,14 @@ const compareByName = (a, b) => {
     }
 }
 
-compareByAge = (a, b) => {
+compareByAge = (a, b) => a.age - b.age
 
-    return a.age - b.age
-}
+compareByMoney = (a, b) => b.money - a.money
 
 const compareFunctionsArray = [
     compareByName,
     compareByAge,
+    compareByMoney
 ]
 
 const multisort = (array) => array.sort(wrapper)
@@ -23,8 +23,7 @@ const multisort = (array) => array.sort(wrapper)
 const wrapper = (a, b) => {
     for (let current of compareFunctionsArray) {
         const result = current(a, b)
-        
-        if (result >= 1 || result <= -1) {
+        if (result) {
             return result
         }
     }
@@ -75,6 +74,27 @@ describe('sort test', () => {
         expect(multisort(input)).toStrictEqual(expected)
     })
 
+    test('sort by MONEY', () => {
+
+        const input = [
+            { money: 2 },
+            { money: 4 },
+            { money: 3 },
+            { money: 1 },
+            { money: 5 },
+        ]
+
+        const expected = [
+            { money: 5 },
+            { money: 4 },
+            { money: 3 },
+            { money: 2 },
+            { money: 1 },
+        ]
+
+        expect(multisort(input)).toStrictEqual(expected)
+    })
+
     test('sort by all', () => {
 
         const input = [
@@ -113,6 +133,88 @@ describe('sort test', () => {
                 name: 'B',
                 age: 2
             },
+        ]
+
+        expect(multisort(input)).toStrictEqual(expected)
+    })
+
+    test('sort by name, age and money', () => {
+
+        const input = [
+            {
+                name: 'C',
+                age: 0,
+                money: 300,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 200,
+            },
+            {
+                name: 'B',
+                age: 2,
+                money: 300,
+            },
+            {
+                name: 'A',
+                age: 1,
+                money: 50,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 100,
+            },
+            {
+                name: 'B',
+                age: 1,
+                money: 200,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 150,
+            }
+        ]
+
+        const expected = [
+            {
+                name: 'A',
+                age: 1,
+                money: 50,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 200,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 150,
+            },
+            {
+                name: 'A',
+                age: 2,
+                money: 100,
+            },
+            {
+                name: 'B',
+                age: 1,
+                money: 200,
+            },
+            {
+                name: 'B',
+                age: 2,
+                money: 300,
+            },
+            {
+                name: 'C',
+                age: 0,
+                money: 300,
+            },
+
         ]
 
         expect(multisort(input)).toStrictEqual(expected)
