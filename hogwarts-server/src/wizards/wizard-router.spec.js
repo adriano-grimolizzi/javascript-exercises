@@ -1,5 +1,5 @@
-const request = require('supertest');
-const express = require("express");
+const request = require('supertest')
+const express = require("express")
 
 const { endpoints } = require('../utils/constants')
 const wizardRouter = require('./wizard-router')
@@ -7,7 +7,7 @@ const wizardService = require('./wizard-service')
 
 jest.mock('./wizard-service')
 
-const app = express();
+const app = express()
 
 app.use(endpoints.WIZARDS, wizardRouter)
 
