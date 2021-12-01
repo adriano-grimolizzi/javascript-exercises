@@ -3,20 +3,16 @@ const SoundPlayerConsumer = require('./sound-player-consumer')
 
 jest.mock('./sound-player', () => jest.fn())
 
-describe('When SoundPlayer throws an error', () => {
+describe('SoundPlayer test:', () => {
     
     beforeAll(() => {
-        SoundPlayer.mockImplementation(() => {
-            return {
-                playSoundFile: () => {
-                    throw new Error('Test error')
-                },
-            }
-        })
+        SoundPlayer.mockImplementation(() => ({
+            playSoundFile: () => 'John Mayer'
+        }))
     })
-
-    it('Should throw an error when calling playSomethingCool', () => {
+    
+    it('Should get a string when calling playSomethingCool', () => {
         const soundPlayerConsumer = new SoundPlayerConsumer()
-        expect(() => soundPlayerConsumer.playSomethingCool()).toThrow()
+        expect(soundPlayerConsumer.playSomethingCool()).toEqual('John Mayer')
     })
 })

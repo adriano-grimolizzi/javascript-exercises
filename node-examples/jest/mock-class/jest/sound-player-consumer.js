@@ -7,7 +7,7 @@ class SoundPlayerConsumer {
 
   playSomethingCool() {
     const coolSoundFileName = 'song.mp3';
-    this.soundPlayer.playSoundFile(coolSoundFileName);
+    return this.soundPlayer.playSoundFile(coolSoundFileName);
   }
 }
 
