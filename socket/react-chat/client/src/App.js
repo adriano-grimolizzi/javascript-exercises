@@ -7,8 +7,19 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { messageText: '' }
+    this.state = {
+      messageText: '',
+      messages: []
+    }
     this.socket = socketIOClient(ENDPOINT)
+  }
+
+  componentWillMount = () => {
+    this.socket.on('chat message', message => {
+      this.setState(prevState => ({
+        messages: [...prevState.messages, <li>{message}</li>]
+      }))
+    })
   }
 
   handleChange = event => {
@@ -26,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <ul id="messages">{this.state.messages}</ul>
         <form id='form' onSubmit={this.handleSubmit}>
           <input id='input' type='text' value={this.state.messageText} onChange={this.handleChange} />
           <button type='submit'>Send</button>
