@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from 'socket.io-client'
 
-import './App.css'
-
 const ENDPOINT = 'http://127.0.0.1:4001'
 
 const App = () => {
@@ -17,7 +15,7 @@ const App = () => {
 
   return (
     <p>
-      Its' <time dateTime={response}>{response}</time>
+      It's <time dateTime={response}>{response}</time>.
     </p>
   )
 }
