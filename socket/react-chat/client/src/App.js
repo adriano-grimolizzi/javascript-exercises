@@ -1,23 +1,38 @@
-import React, { useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import socketIOClient from 'socket.io-client'
 
-const ENDPOINT = 'http://127.0.0.1:4001'
+const ENDPOINT = 'http://127.0.0.1:3001'
 
-const App = () => {
-  const [response, setResponse] = useState('')
+class App extends Component {
 
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT)
-    socket.on('FromAPI', data => {
-      setResponse(data)
-    })
-  }, [])
+  constructor(props) {
+    super(props)
+    this.state = { messageText: '' }
+    this.socket = socketIOClient(ENDPOINT)
+  }
 
-  return (
-    <p>
-      It's <time dateTime={response}>{response}</time>.
-    </p>
-  )
+  handleChange = event => {
+    this.setState({ messageText: event.target.value })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    if (this.state.messageText) {
+      this.socket.emit('chat message', this.state.messageText)
+      this.setState({ messageText: '' })
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <form id='form' onSubmit={this.handleSubmit}>
+          <input id='input' type='text' value={this.state.messageText} onChange={this.handleChange} />
+          <button type='submit'>Send</button>
+        </form>
+      </>
+    )
+  }
 }
 
 export default App
